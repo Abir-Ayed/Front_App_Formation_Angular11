@@ -1,0 +1,150 @@
+<app-menu></app-menu>
+
+<div class="wrapper">
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Nouveau participant</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-7">
+
+              <!-- /.card -->
+              <!-- Horizontal Form -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Ajouter participant avec l'affectation de sessions</h3>
+                </div>
+                <br>
+                <form control="" class="form-group" (ngSubmit)="onSubmit()">
+
+                  <div class="form-group row">
+                    <label for="nom" style="margin-left:10PX" class="col-sm-2 col-form-label">Nom</label>
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id = "nom"
+                             name = "nom" [(ngModel)] = "participant.nom" placeholder="Nom de participant">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="prenom" style="margin-left:10PX" class="col-sm-2 col-form-label">Prénom</label>
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id = "prenom"
+                             name = "prenom" [(ngModel)] = "participant.prenom" placeholder="prénom de participant">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="email"style="margin-left:10PX" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id = "email"
+                             name = "email" [(ngModel)] = "participant.email" placeholder="email de participant">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="tel" style="margin-left:10PX"class="col-sm-2 col-form-label">Tél</label>
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" id = "tel"
+                             name = "tel" [(ngModel)] = "participant.tel" placeholder=" Télephonede participant">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" style="margin-left:10PX">Type</label>
+                    <div class="col-sm-5">
+                      <select   id = "type" name="type"  class="form-control" [(ngModel)] = "participant.type">
+                        <option>nationale</option>
+                        <option>internationale</option>
+                      </select></div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="type" style="margin-left:10PX" class="col-sm-2 col-form-label">Organisme</label>
+                    <div class="col-sm-5">
+                      <select class=form-control   id="organisme"
+
+                              required [(ngModel)]="participant.organisme"
+                              name="organisme" >
+                    
+                        <option  *ngFor="let org of organismes "  [ngValue]="org"  value="{{org.id}}">{{org.libelle}} </option>
+
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="type" style="margin-left:10PX" class="col-sm-2 col-form-label">Profil</label>
+                    <div class="col-sm-5">
+
+                      <select class=form-control  id="profils"
+
+                              required [(ngModel)]="participant.profils"
+                              name="profils" style="margin-left: 82 ">
+
+                        <option  *ngFor="let prof of profils"  [ngValue]="prof"  value="{{prof.id}}">{{prof.libelle}} </option>
+
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="type" style="margin-left:10PX" class="col-sm-2 col-form-label">Pays</label>
+                    <div class="col-sm-5">
+                      <select class=form-control  id="pays"
+
+                              required [(ngModel)]="participant.pays"
+                              name="pays" style="margin-left: 82 ">
+
+                        <option  *ngFor="let pay of payss "  [ngValue]="pay"  value="{{pay.id}}">{{pay.nom}} </option>
+
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="type" style="margin-left:10PX" class="col-sm-2 col-form-label">Choisir des sessions</label>
+                    <div class="col-sm-8">
+                      <div class="col-lg-7" id="tab"  >
+                        <table  id="session"
+                                required
+                                name="session"  >
+                          <tr *ngFor="let sess of sessions " >
+<TD> <input type="checkbox" [value]='sess' name="{{sess}}" (change)='getSessionId($event,sess)' > {{sess.formation.titre}}      {{sess.date_debut}}
+</TD><br>
+
+
+                          </tr>
+
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div >
+                    <button style="margin-left: 10PX" type="submit" class="btn btn-info">Enregistrer</button>
+                    <button type="submit" style="margin-right: 10PX" class="btn btn-default float-right">Cancel</button>
+                  </div>
+
+                </form>
+              </div>
+
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+
+          <!--/.col (right) -->
+        </div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,123 @@
+
+<app-menu></app-menu>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Session Formation</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active"><a href="/sessionFormmations">Session Formation</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-10">
+
+
+              <!-- /.card -->
+              <!-- Horizontal Form -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title"> Details Session Formation</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form class="form-horizontal" >
+                  <div class="card-body" >
+                    <div class="form-group row">
+                      <label  class="col-sm-4 col-form-label">Formation </label>
+                      <div class="col-sm-6">
+                        <label  class="form-control">{{sessionformation.formation.titre}} </label>
+
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label  class="col-sm-4 col-form-label">formateur</label>
+                      <div class="col-sm-6">
+                        <label  class="form-control">{{sessionformation.formateur.nom}} </label>
+
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label  class="col-sm-4 col-form-label">Nombre de participants </label>
+                      <div class="col-sm-6">
+                        <label  class="form-control">{{sessionformation.nb_participant}} </label>
+
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label  class="col-sm-4 col-form-label">Organisme </label>
+                      <div class="col-sm-6">
+                        <label  class="form-control">{{sessionformation.organisme.libelle}} </label>
+
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label  class="col-sm-4 col-form-label">Date début</label>
+                      <div class="col-sm-6">
+                        <label  class="form-control">{{sessionformation.date_debut}} </label>
+
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label  class="col-sm-4 col-form-label">Date fin</label>
+                      <div class="col-sm-6">
+                        <label  class="form-control">{{sessionformation.date_fin}} </label>
+
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label  class="col-sm-4 col-form-label">Lieu </label>
+                      <div class="col-sm-6">
+                        <label  class="form-control">{{sessionformation.lieu}} </label>
+
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.card-body -->
+
+                  <!-- /.card-footer -->
+                </form>
+              </div>
+              <!-- /.card -->
+
+            </div>
+            <!--/.col (left) -->
+            <!-- right column -->
+
+            <!--/.col (right) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section></section>
+
+  </div>
+</div>
+
+
+
+
+</body>
+<router-outlet></router-outlet>
+
+
+
+
+

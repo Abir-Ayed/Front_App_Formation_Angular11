@@ -1,0 +1,119 @@
+
+
+
+
+<body class="hold-transition login-page"  background="assets/img/background.jpg">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html" style="color: white;">FORMINET</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Nouvelle inscription</p>
+  
+        <form   [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+          <div class="input-group mb-3">
+         
+            <input type="text" class="form-control" id="userName"
+            formControlName="userName" placeholder="Username">
+            <div class="alert alert-danger" *ngIf="registrationForm.get('userName').invalid
+            && registrationForm.get('userName').touched">
+            <div *ngIf="registrationForm.get('userName').errors.required">
+              Le Nom d'utilisateur est obligatoire.
+            </div>
+            <div *ngIf="registrationForm.get('userName').errors.minlength">
+              Le nom d'utilisateur doit avoir au moins 4 caractères.
+            </div>
+            <div *ngIf="registrationForm.get('userName').errors.maxlength">
+              Le nom d'utilisateur ne doit pas dépasser les 20 caractères.
+            </div>
+          </div>
+            
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+         
+            <input type="email" class="form-control" id="email"
+            formControlName="email" placeholder="Email">
+            <div class="alert alert-danger" *ngIf="registrationForm.get('email').invalid
+            && registrationForm.get('email').touched">
+          Adresse éléctronique non valide!
+        </div>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="input-group mb-3">
+         
+            <input type="password" class="form-control" id="password"
+            formControlName="password" placeholder="Password">
+            <div class="alert alert-danger" *ngIf="registrationForm.get('password').invalid
+            && registrationForm.get('password').touched">
+            <div *ngIf="registrationForm.get('password').errors.required">
+              Le Mot de passe est obligatoire.
+            </div>
+            <div *ngIf="registrationForm.get('password').errors.minlength">
+              Le mot de passe doit avoir au moins 6 caractères.
+            </div>
+          </div>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="input-group mb-3">
+          
+              
+             
+            
+            <div class="form-group">
+              <label>Choisissez le(s) role(s)</label>
+                <div class="form-check"
+                *ngFor="let role of registrationForm.get('roleSelection')['controls']; let i = index">
+                  <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input"
+                      [formControl]="role">
+                      {{roles[i].name}}
+                  </label>
+                </div>
+            </div>            
+          </div>
+          <div class="row">
+           
+            <!-- /.col -->
+            <div class="col-5">
+              <button type="submit" [disabled]="registrationForm.invalid" class="btn btn-primary btn-block">Valider</button>
+              <div class="alert alert-warning" *ngIf="submitted && !isRegistered">
+                Inscription échouée ! {{ errorMessage }}
+              </div>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+        <div class="alert alert-success" *ngIf="isRegistered">
+          Votre inscription est réussi. Merci de votre intérêt.
+        </div>
+      
+        <p class="mb-0">
+          <a href="/login" class="text-center">Login</a>
+        </p>
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  
+  </body>
+  
+  

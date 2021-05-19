@@ -1,0 +1,123 @@
+<app-menu></app-menu>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Session Formation</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active"><a href="/sessionFormmations">Session Formation</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+
+
+              <!-- /.card -->
+              <!-- Horizontal Form -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Modifier Session</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <div class="container">
+                 
+                  <br>
+                  <form (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                      <label for="datedebut">Date début:</label>
+                      <input type="date" class="form-control"
+                             required [(ngModel)]="sesfor.date_debut"
+                             id="datedebut" placeholder="Enter date de début" name="datedebut">
+                    </div>
+                    <div class="form-group">
+                      <label for="datefin">Date fin :</label>
+                      <input type="date" class="form-control"
+                             required [(ngModel)]="sesfor.date_fin"
+                             id="datefin" placeholder="Enter date fin" name="datefin">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="organisme"> Organisme :</label>
+                      <select type="text" class="form-control"  id="organisme"
+                              required [(ngModel)]="sesfor.organisme.id"
+                              name="organisme" >
+                        <option *ngFor="let og of organismes"
+                                value="{{og.id}}">{{og.libelle}} </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="formation"> Formations :</label>
+                      <select type="text" class="form-control"  id="formation"
+                              required [(ngModel)]="sesfor.formation.id"
+                              name="formation">
+                        <option *ngFor="let fo of formations"
+                                value="{{fo.id}}">{{fo.titre}} </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="formateur"> Formateurs :</label>
+                      <select type="text" class="form-control"  id="formateur"
+                              required [(ngModel)]="sesfor.formateur.id"
+                              name="formateur">
+                        <option *ngFor="let for of formateurs"
+                                value="{{for.id}}">{{for.nom}} </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="lieu">Lieu de session :</label>
+                      <input type="text" class="form-control"
+                             required [(ngModel)]="sesfor.lieu"
+                             id="lieu" placeholder="Enter le Lieu de session " name="lieu">
+                    </div>
+                    <div class="form-group">
+                      <label for="Nb_participant">nombre de participant </label>
+                      <input type="number" class="form-control"
+                             required [(ngModel)]="sesfor.nb_participant"
+                             id="Nb_participant" placeholder="Enter le Lieu de session " name="Nb_participant">
+                    </div>
+
+                    <br>
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-info">Valider</button>
+                    
+                    </div>
+                  </form>
+                </div>
+
+                <!-- /.card -->
+
+              </div>
+              <!--/.col (left) -->
+              <!-- right column -->
+
+              <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+          </div>
+
+        </div><!-- /.container-fluid -->
+      </section></section>
+
+  </div>
+</div>
+
+
+
+
+</body>
+<router-outlet></router-outlet>

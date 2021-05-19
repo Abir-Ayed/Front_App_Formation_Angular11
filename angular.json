@@ -24,9 +24,35 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css",
+
+              "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
+               "node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
+              "node_modules/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
+              "node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css",
+
+              "node_modules/admin-lte/dist/css/adminlte.css",
+              "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.css",
+              "node_modules/admin-lte/plugins/daterangepicker/daterangepicker.css",
+              "node_modules/admin-lte/plugins/summernote/summernote-bs4.min.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss"
+
             ],
-            "scripts": []
+            "scripts": [ 
+              
+              "node_modules/admin-lte/plugins/jquery/jquery.js",
+              "node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.js",
+              "node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js",
+              "node_modules/admin-lte/dist/js/adminlte.js",
+              "node_modules/admin-lte/dist/js/demo.js",
+              "node_modules/admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js",
+              "node_modules/admin-lte/plugins/raphael/raphael.js",
+              "node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js",
+              "node_modules/admin-lte/plugins/chart.js/Chart.js",
+          
+
+              "node_modules/admin-lte/dist/js/pages/dashboard2.js"]
           },
           "configurations": {
             "production": {
@@ -88,7 +114,10 @@
               "src/assets"
             ],
             "styles": [
+            
               "src/styles.css"
+              
+
             ],
             "scripts": []
           }
@@ -119,6 +148,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "frontendjwt"
+    }
+  },
+  "defaultProject": "frontendjwt",
+  "cli": {
+    "analytics": "611b4384-90a5-40bf-aa83-ab74018d2782"
+  }
 }

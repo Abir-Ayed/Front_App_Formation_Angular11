@@ -1,0 +1,98 @@
+<app-menu></app-menu>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Participants</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Participant</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Afficher la liste des participants</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <td>
+                <a routerLink="/addParticipant" > <button type="button" class="btn btn-block btn-primary"><i class="fas fa-plus"></i>Ajouter participant</button></a>
+              </td>
+              <br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Profil</th>
+                  <th>Email</th>
+                  <th>Téléphone</th>
+                  <th>Type</th>
+                  <th>Organismme</th>
+                  <th>Pays</th>
+                  <th>Session formation</th>
+                  <th>Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr *ngFor = "let participant of participants" >
+                  <td>{{participant.profils.libelle}}</td>
+                  <td> {{ participant.email }}</td>
+                  <td> {{ participant.tel }}</td>
+                  <td> {{ participant.type }}</td>
+                  <td>{{participant.organisme.libelle}}</td>
+                  <td>{{participant.pays.nom}}</td>
+                 
+                  <td *ngFor = "let ses  of participant.session ">{{ses.session}}</td>
+
+                  <td>
+                    <button (click) = "deleteParticipant(participant.id)" class = "btn btn-danger" style="margin-left: 2%;"> <i class="far fa-trash-alt"></i></button>
+                    <button (click)="updateParticipant(participant.id)" class="btn btn-success" style="margin-left: 2%;">
+                            
+                            <i class="fas fa-edit"></i></button>
+                    <button
+                        (click) = "detailsParticipant(participant.id)"  class="btn btn-info" style="margin-left: 2%;"><i class="fas fa-eye"></i></button>
+                   
+
+                  </td>
+                </tr>
+
+               
+                </tbody>
+                <tfoot>
+                <tr>
+                   <th>Profil</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                  <th>Type</th>
+                  <th>Organismme</th>
+                  <th>Pays</th>
+                  <th>Session formation</th>
+                  <th>Action</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          </div>
+          </div>
+          </div>
+          </section>
+          </section>
+          </div>
+          </div></body>
+<router-outlet></router-outlet>

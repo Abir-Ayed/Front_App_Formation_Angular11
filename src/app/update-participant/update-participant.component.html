@@ -1,0 +1,140 @@
+<app-menu></app-menu>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>DataTables</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">DataTables</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+
+
+              <!-- /.card -->
+              <!-- Horizontal Form -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Horizontal Form</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form class="form-horizontal" (ngSubmit) = "onSubmit()">
+                  <div class="card-body">
+                    <div class="form-group row">
+                      <label for="nom" class="col-sm-2 col-form-label">Nom</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id = "nom"
+                               name = "nom" [(ngModel)] = "participant.nom" placeholder="Nom">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="prenom" class="col-sm-2 col-form-label">Prenom</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id = "prenom"
+                               name = "prenom" [(ngModel)] = "participant.prenom" placeholder="Prenom">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="email" class="col-sm-2 col-form-label">Email</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id = "email"
+                               name = "email" [(ngModel)] = "participant.email" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="tel" class="col-sm-2 col-form-label">Téléphone</label>
+                      <div class="col-sm-10">
+                        <input type="tel" class="form-control" id = "tel"
+                               name = "tel" [(ngModel)] = "participant.tel" placeholder="Téléphone">
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                      <label>Type</label>
+                      <select   id = "type" name="type" class="form-control" [(ngModel)] = "participant.type">
+                        <option>nationale</option>
+                        <option>internationale</option>
+                      </select>
+                    </div>
+                    <div class="form-group row">
+                      <label for="organisme_id" class="col-sm-2 col-form-label">Organisme </label>
+                      <div class="col-sm-10">
+                        <select  class="form-control" id = "organisme_id"
+                                  name = "organisme_id" [(ngModel)] = "participant.organisme.id" placeholder="organisme" >
+                          <option *ngFor="let organisme of organismes | async" value="{{organisme.id}}" >
+                            {{organisme.libelle}}
+
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="pays_id" class="col-sm-2 col-form-label">Pays </label>
+                      <div class="col-sm-10">
+                        <select  class="form-control" id = "pays_id"
+                                 name = "pays_id" [(ngModel)] = "participant.pays.id" placeholder="pays" >
+                          <option *ngFor="let pays of payss | async" value="{{pays.id}}" >
+                            {{pays.nom}}
+
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="profil_id" class="col-sm-2 col-form-label">Profil </label>
+                      <div class="col-sm-10">
+                        <select  class="form-control" id = "profil_id"
+                                 name = "profil_id" [(ngModel)] = "participant.profils.id" placeholder="Profil">
+                          <option *ngFor="let profil of profils | async" value="{{profil.id}}" >
+                            {{profil.libelle}}
+
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-info">Valider</button>
+                    <button type="submit" class="btn btn-default float-right">Cancel</button>
+                  </div>
+                  <!-- /.card-footer -->
+                </form>
+              </div>
+              <!-- /.card -->
+
+            </div>
+            <!--/.col (left) -->
+            <!-- right column -->
+
+            <!--/.col (right) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section></section>
+
+  </div>
+</div>
+
+
+
+
+</body>
+<router-outlet></router-outlet>

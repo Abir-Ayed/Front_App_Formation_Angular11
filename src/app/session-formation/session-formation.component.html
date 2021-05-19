@@ -1,0 +1,110 @@
+<app-menu></app-menu>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1> Session Formation</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"><a href="/sessionFormmations">Sessions Formations</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Afficher la liste des sessions formations</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <td>
+                    <a routerLink="/addSessionFormation" > <button type="button" class="btn btn-block btn-primary"><i class="fas fa-plus"></i>Ajouter session formation</button></a>
+                  </td>
+                  <br>
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                    
+                      <th  >Date début</th>
+                      <th  >Date fin</th>
+                      <th  >Lieu de formation</th>
+                      <th  >Nombre de participants</th>
+                     
+                     
+                        <th  >Nom de formateur</th>
+                        <th  >Organisme</th>           
+                         <th  >Action</th>
+                      </tr>
+                  
+                    </thead>
+                    <tbody>
+                    <tr  *ngFor="let session of  sessionformations | async">
+                     
+                  
+                      <td>{{ session.date_debut}}</td>
+                      <td>{{ session.date_fin}}</td>
+                      <td>{{ session.lieu}}</td>
+                      <td>{{ session.nb_participant}}</td>
+                      <td>{{session.formateur.nom}}</td>
+                      <td>{{session.organisme.libelle}}</td>
+                   <td>
+
+
+                    <button (click) = "deletesessionformation(session.id)" class = "btn btn-danger" > <i class="far fa-trash-alt"></i></button>
+                    <button (click)="   sessionformationDetails(session.id)"
+                            class="btn btn-info" style="margin-left: 4px"><i class="fas fa-eye"></i></button>
+                    <button (click)="updatesessionformation(session.id)"
+                            class="btn btn-success" style="margin-left: 4px">
+                            <i class="fas fa-edit"></i>    </button>
+
+                   </td>
+                   
+                    </tr>
+
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                    
+                        <th  >Date début</th>
+                        <th  >Date fin</th>
+                        <th  >Lieu de formation</th>
+                        <th  >Nombre de participants</th>
+                       
+                       
+                          <th  >Nom de formateur</th>
+                          <th  >Organisme</th>           
+                        <th  >Action</th>
+                        </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</div></body>
+<router-outlet></router-outlet>

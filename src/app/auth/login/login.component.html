@@ -1,0 +1,71 @@
+
+
+
+
+<body class="hold-transition login-page"  background="assets/img/background.jpg" style="background-repeat: no-repeat;" >
+<div class="login-box">
+  <div class="login-logo">
+    <a href="" ><b style="color:rgb(250, 250, 250)">FORMINET</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Connectez-vous pour démarrer votre session</p>
+
+      <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="input-group mb-3">
+       
+          <input type="text" class="form-control" placeholder="Username" id="userName"
+          formControlName="userName">
+          <div class="alert alert-danger" *ngIf="loginForm.get('userName').invalid
+            && loginForm.get('userName').touched">
+            <div *ngIf="loginForm.get('userName').errors.required">
+              Le Nom d'utilisateur est obligatoire.
+            </div>
+            </div>
+          
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password" id="password"
+          formControlName="password">
+
+          <div class="alert alert-danger" *ngIf="loginForm.get('password').invalid
+          && loginForm.get('password').touched">
+          <div *ngIf="loginForm.get('password').errors.required">
+            Le Mot de passe est obligatoire.
+          </div>
+        </div>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+         
+          
+        </div>
+        <div class="row">
+         
+          <!-- /.col -->
+          <div class="col-5">
+            <button type="submit" class="btn btn-primary btn-block" (click)="showToastr()">Connecter</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+    
+      <p class="mb-0">
+        <a href="/signup" class="text-center">Créer un nouveau compte</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+
+</body>
+

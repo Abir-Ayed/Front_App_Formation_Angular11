@@ -1,0 +1,87 @@
+<app-menu></app-menu>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Organismes</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active"><a href="/organismes">Organismes</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Afficher la liste des organismes </h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <td>
+                    <a routerLink="/addorganisme" > <button type="button" class="btn btn-block btn-primary"><i class="fas fa-plus"></i>Ajouter Organisme</button></a>
+                  </td>
+                  <br>
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                      
+                      <th  style="width: 30px">Organisme</th>
+                      <th  style="width: 40px">Action</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  *ngFor="let organisme of organismes ">
+                     
+                      <td>{{ organisme.libelle}}</td>
+
+
+                      <td>
+                        <button (click) = "deleteOrganisme(organisme.id)" class = "btn btn-danger" style="margin-left: 10px"> <i class="far fa-trash-alt"></i></button>
+
+
+                      </td>
+                    </tr>
+
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                  
+                      <th>Organisme</th>
+                      <th>Action</th>
+                    </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</div></body>
+
+<router-outlet></router-outlet>

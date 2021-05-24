@@ -40,7 +40,7 @@
                   <th>Type</th>
                   <th>Organismme</th>
                   <th>Pays</th>
-                  <th>Session formation</th>
+                 
                   <th>Action</th>
 
                 </tr>
@@ -55,7 +55,7 @@
                   <td>{{participant.organisme.libelle}}</td>
                   <td>{{participant.pays.nom}}</td>
                  
-                  <td *ngFor = "let ses  of participant.session ">{{ses.session}}</td>
+                
 
                   <td>
                     <button (click) = "deleteParticipant(participant.id)" class = "btn btn-danger" style="margin-left: 2%;"> <i class="far fa-trash-alt"></i></button>
@@ -79,7 +79,7 @@
                   <th>Type</th>
                   <th>Organismme</th>
                   <th>Pays</th>
-                  <th>Session formation</th>
+                  
                   <th>Action</th>
                 </tr>
                 </tfoot>
